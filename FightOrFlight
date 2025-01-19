@@ -1,0 +1,316 @@
+#FIGHT or FLIGHT
+
+import random
+print("WELCOME TO FIGHT OR FLIGHT!")
+print("""
+                               _                 _
+                               \\\             ///
+                                \\\           ///             
+                                 \\\._-----_.///   
+                      ___/￣￣\-.__'//       \\'__.-/￣￣\___                    
+    _______________//___￣￣￣_[ \\.\\'-----'//.// ]_￣￣￣___\\_______________
+   /____________________-------_/_/ |   .   | \_\_-------____________________\
+                  \       (o)(o)  ---\_____/---  (o)(o)       / 
+                    ￣￣￣￣￣\ (o)  /|\_____/|\  (o) /￣￣￣￣￣  
+                              ￣￣￣\|/______\|/￣￣￣             """)
+print()
+print("Turn on Caps Lock if possible for best experience.")
+print()
+print("You wake up in your bed to the sound of a blaring siren. ")
+print("You look out the window and see a world engulfed in flames.")
+print("You instantly know it was the doing of the enemy jets.")
+print()
+print("You can get in your jet to see what is happening.")
+print("OR")
+print("You can go back to sleep.")
+alive = True
+missiles = []
+for i in range (1,7,1):
+    missiles.append(f"#{i}")
+health = 100
+if(health>0):
+    #JET or SLEEP
+    print()
+    choiceJS = ["JET", "SLEEP"]
+    jetOrSleep = input("JET or SLEEP: ")
+    while(jetOrSleep not in choiceJS):
+            print()
+            print("That is not a recognized choice. Try again.")
+            jetOrSleep = input("JET or SLEEP: ")
+    if(jetOrSleep == "JET"):
+        print()
+        print("You climb into the cockpit of your fighter jet.")
+        print("You rememember stories of how enemies could attack at any moment.")
+        print("Your jet is equipped with missiles.")
+        print(f"Missiles Left: {missiles}")
+        print("As you start the jet, warning lights start flashing.")
+        print()
+        print("You can ignore these warning lights and take the risk.")
+        print("OR")
+        print("You can choose to get assistance, but that will take time.")
+        
+    #IGNORE or GET HELP
+        print()
+        choiceIGH = ["IGNORE", "GET HELP"]
+        ignoreOrGetHelp = input("IGNORE or GET HELP: ")
+        while(ignoreOrGetHelp not in choiceIGH):
+            print()
+            print("That is not a recognized choice. Try again.")
+            ignoreOrGetHelp = input("IGNORE or GET HELP: ")
+        print()   
+        if(ignoreOrGetHelp == "IGNORE"):
+            print("You choose to ignore the flashing lights with a wave of bravery.")
+            print("You flip countless switches and your jet zooms off of the runway.")
+            print("You realize those weren't warning lights and you were just sleepy.")
+            print("You scout the skies to see what the problem was.")
+            print("Off in the distance, you see 2 shimmering objects.")
+            print("Enemy jets!")
+            print("They haven't seen you yet.")
+            print()
+            print("You can fire missiles at the enemies.")
+            print("OR")
+            print("You can remain unseen and get past them stealhtily.")
+            #ATTACK or STEALTH
+            print()
+            choiceAS = ["ATTACK", "STEALTH"]
+            attackOrStealth = input("ATTACK or STEALTH: ")
+            while(attackOrStealth not in choiceAS):
+                print()
+                print("That is not a recognized choice. Try again.")
+                attackOrStealth = input("ATTACK or STEALTH: ")
+            
+            if (attackOrStealth == "ATTACK"):
+                print("The enemies start firing at you!")
+                
+                for i in range(0,2,1):
+                    print()  
+                    fire = input(f"Which missile would you like to fire? {missiles}: ")
+                    
+                    while(fire not in missiles):
+                        print()
+                        print("That is not a recognized choice. Try again.")
+                        fire = input(f"Which missile would you like to fire? {missiles}: ")
+                        
+                    print("You click the red button on your dashboard.")
+                    print("A missile goes flying into the enemy jet.")
+                    print("It's a direct hit and the enemy jet goes down in flames.")
+                    hits = 0
+                    while(hits < 3):
+                        damage = random.randint(5,10)
+                        health -= damage
+                        hits += 1
+                    missiles.remove(fire)
+                    
+            else:
+                print("You get past the enemies without being spotted.")
+                print("You lost no health and kept all 6 missiles intact.")
+            #TEAMMATES or BOSS
+            if (health > 0):
+                print(f"Your health is at {health}%.")
+                print(f"Missiles Left: {missiles}")
+                print()
+                print("You see some dots on the horizon.")
+                print("They're your teammates whose plane must've crashed.")
+                print("But on the other side of the sky you see something else.")
+                print("A dark looming tower which you instantly know is the enemies' layer.")
+                print()  
+                choiceTB = ["TEAMMATES", "BOSS"]
+                teammatesOrBoss = input("TEAMMATES or BOSS: ")
+                while(teammatesOrBoss not in choiceTB):
+                    print()
+                    print("That is not a recognized choice. Try again.")
+                    teammatesOrBoss = input("TEAMMATES or BOSS: ")
+                    
+                if (teammatesOrBoss == "TEAMMATES"):
+                    print("You dive to save your teammates.")
+                    print("You take a few shots, but save teammates.")
+                    print("Your teammates have a few extra missiles.")
+                    print()
+                    choicePUM = ["YES", "NO"]
+                    pickUpMissiles = input("Do you want to pick up the extra missiles? (YES/NO): ")
+                    while(pickUpMissiles not in choicePUM):
+                        print()
+                        print("That is not a recognized choice. Try again.")
+                        pickUpMissiles = input("Do you want to pick up the extra missiles? (YES/NO): ")
+                        
+                    if(pickUpMissiles == "YES"):
+                        health -= 20
+                        missiles.append("#7")
+                        missiles.append("#8")
+                        missiles.append("#9")
+                        missiles.append("#10")
+                        
+                    
+                else:
+                    print("You go on to fight the boss.")
+                if(health > 0):
+                    print(f"Your health is at {health}%.")
+                    print(f"Missiles Left: {missiles}")
+                    #FIGHT ENEMIES or GO STRAIGHT FOR TOWER or GO THROUGH CLOUD
+                    print()
+                    print("More enemies are spotted on your radar.")
+                    print("But on the other side of the sky you see something else.")
+                    print("A dark looming tower which you instantly know is the enemies' layer.")
+                    print("You see a weird cloud to the left.")
+                    print("It is glowing green")
+                    print()
+                    print("You can go and fight the enemies.")
+                    print("OR")
+                    print("You can avoid them and go straight to the enemy tower.")
+                    print("OR")
+                    print("Go through the green cloud.")
+                    
+                    enemiesOrTowerOrCloud = input("ENEMIES or TOWER or CLOUD: ")
+                    choiceETC = ["ENEMIES", "TOWER", "CLOUD"]
+                    while(enemiesOrTowerOrCloud not in choiceETC):
+                        print("That is not a recognized choice. Try again.")
+                        enemiesOrTowerOrCloud = input("ENEMIES or TOWER or CLOUD: ")
+                    if (enemiesOrTowerOrCloud == "ENEMIES"):
+                    
+                        for i in range(0,3,1):
+                            print()  
+                            fire = input(f"Which missile would you like to fire? {missiles}: ")
+                            
+                            while(fire not in missiles):
+                                print()
+                                print("That is not a recognized choice. Try again.")
+                                fire = input(f"Which missile would you like to fire? {missiles}: ")
+                                
+                            print()
+                            print("You lock the crosshairs of your jet onto the enemy and fire.")
+                            print("Your missile crashes into the oncoming enemies.")
+                            
+                            damage = random.randint(5,15)
+                            health -= damage
+                            missiles.remove(fire)
+                            
+                        
+                    elif(enemiesOrTowerOrCloud == "TOWER"):
+                        print("You keep on going on you journey to the enemy layer.")
+                        print("You prepare yourself for the coming battle.")
+                    else:
+                        print("You go through the cloud.")
+                        if (health<100):
+                            print("The cloud heals you completely")
+                            health = 100
+                        print("You laugh at your decision and go forward to the tower.")
+                    #BOSS FIGHT: FIGHT or WAIT FOR REINFORCEMENTS or HIDE
+                    if(health>0):
+                        print(f"Your health is at {health}%.")
+                        print(f"Missiles Left: {missiles}")
+                        print()
+                        print("You see a massive and ominous looking shadow.")
+                        print("Your instinct tells you that this is the final boss you have to beat.")
+                        print("From the shadows emegres a large and menacing dragon.")
+                        print()
+                        print("You can start firing missiles at the boss.")
+                        print("OR")
+                        print("You can wait for reinforcements, which will take some time.")
+                        print("OR")
+                        print("You can stay in hiding from the boss, but the boss will probably see you.")
+                        
+                        choiceFWH = ["FIGHT", "WAIT", "HIDE"]
+                        fightOrWaitOrHide = input("FIGHT or WAIT or HIDE: ")
+                        while(fightOrWaitOrHide not in choiceFWH):
+                            print()
+                            print("That is not a recognized choice. Try again.")
+                            fightOrWaitOrHide = input("FIGHT or WAIT or HIDE: ")
+                            
+                        if (health > 0):
+                            if (fightOrWaitOrHide == "FIGHT"):
+                                for i in range(0,5,1):
+                                    if(len(missiles)<1):
+                                        print()
+                                        print("You don't have enough missiles to continue fighting!")
+                                        print("The boss sees that you are defenseless and attacks you.")
+                                        print()
+                                        print("Game over!")
+                                        print("You died.")
+                                        print("Thanks for playing!")
+                                        health = 0
+                                        break
+                                    fire = input(f"Which missile would you like to fire? {missiles}: ")
+                        
+                                    while(fire not in missiles):
+                                        print()
+                                        print("That is not a recognized choice. Try again.")
+                                        fire = input(f"Which missile would you like to fire? {missiles}: ")
+                                    
+                                    print("You fire a missile from your jet.")
+                                    print("BOOM!")
+                                    print("The boss is taking damage.")
+                                    print("You take a hit from his fiery breath.")
+                                    
+                                    hits = 0
+                                    while(hits < 2):
+                                        damage = random.randint(2,5)
+                                        health -= damage
+                                        hits += 1
+                                    missiles.remove(fire)
+                                if(health>0):
+                                    print(f"Your health is at {health}%.")
+                                    print(f"Missiles Left: {missiles}")
+                                    print()
+                                    print("The boss has taken too many shots.")
+                                    print("He falls to the ground in defeat.")
+                                    print("You've beaten the boss and accomplished your mission!")
+                                    print("Congratulations!")
+                            elif(fightOrWaitOrHide == "WAIT"):
+                                print("The boss sees you!")
+                                print("He catches you off guard.")
+                                print("The boss takes you down with one swipe")
+                                print()
+                                print("Game over!")
+                                print("You died.")
+                                print("Thanks for playing!")
+                            else:
+                                print("You choose to hide.")
+                                print("The boss has infared vision.")
+                                print("He sees you in an instant and swoops in to eat your plane.")
+                                print()
+                                print("Game over!")
+                                print("You died.")
+                                print("Thanks for playing!")
+                        else:
+                            print()
+                            print("Game over!")
+                            print("You died.")
+                            print("Thanks for playing!")
+                    else:
+                        print()
+                        print("Game over!")
+                        print("You died.")
+                        print("Thanks for playing!")
+                else:
+                    print()
+                    print("You took too many hits!")
+                    print("Game over!")
+                    print("You died.")
+                    print("Thanks for playing!")
+            else:
+                print()
+                print("You took too many hits!")
+                print("Game over!")
+                print("You died.")
+                print("Thanks for playing!")
+        else:
+            print()
+            print("You go to get help.")
+            print("It is starting to take a long time.")
+            print("You see something in the sky.")
+            print("It is a fleet of enemy jets.")
+            print('"TAKE COVER!" someone yells.')
+            print("BOOM!")
+            print("You've suffered major injuries and are hositpalized.")
+            print("You need to take rest.")
+            print("You cannot help in the battle anymore.")
+            print("See you next time!")
+    else:
+        print("Okay, sleep tight!")
+        print("You are attacked by enemy jets in your sleep.")
+        print("You die. Game over!")
+else:
+    print()
+    print("You lost all of your health.")
+    print("You die. Game over!")
+    print("Thanks for playing!")
